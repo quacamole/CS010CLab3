@@ -1,8 +1,8 @@
 #include <iostream>
-#include <stdexcept>
-#include <cstdlib>
 #include <vector>
 #include <string>
+#include <stdexcept>
+#include <cstdlib>
 using namespace std;
 
 template<typename T>
@@ -61,9 +61,10 @@ int main(){
         curChar = getElement(vals,index);
         cout << "Element located at " << index << ": is " << curChar << endl;
         }
-    }
-    catch (out_of_range& excpt) {
-        cout << "Out of range exception occurred." << endl;
+        catch (out_of_range& excpt) {
+            cout << "Out of range exception occurred." << endl;
+        }
+
     }
     return 0;
 }
