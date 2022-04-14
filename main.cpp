@@ -72,9 +72,9 @@ int main(){
         curChar = getElement(vals,index);
         cout << "Element located at " << index << ": is " << curChar << endl;
         }
-    }
-    catch (runtime_error& excpt) {
-        cout << excpt.what() << " exception occurred." << endl;
+        catch (runtime_error& excpt) {
+            cout << excpt.what() << " exception occurred." << endl;
+        }
     }
     return 0;
 }
