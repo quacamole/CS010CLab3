@@ -39,7 +39,8 @@ void selection_sort(vector<T> &vals) {
 
 template<typename T>
 T getElement(vector<T> vals, int index) {
-    if(index < 0 || index > vals.size() - 1)
+    int valsSize = vals.size();
+    if(index < 0 || index > valsSize - 1)
     {
         throw runtime_error("std::out_of_range");
     }
@@ -48,12 +49,12 @@ T getElement(vector<T> vals, int index) {
 
 vector<char> createVector() {
     int vecSize = rand() % 26;
-    char c = 'a';
+    char letter = 'a';
     vector<char> vals;
     for(int i = 0; i < vecSize; i++)
     {
-        vals.push_back(c);
-        c++;
+        vals.push_back(letter);
+        letter++;
     }
     return vals;
 }
@@ -61,20 +62,30 @@ vector<char> createVector() {
 int main(){
     //Part B
     srand(time(0));
+
     vector<char> vals = createVector();
     char curChar;
     int index;
-    int numOfRuns = 10;
-    while(--numOfRuns >= 0){
+    int numRuns = 10;
+
+
+    while(numRuns >= 0){
         cout << "Enter a number: " << endl;
         cin >> index;
         try {
         curChar = getElement(vals,index);
-        cout << "Element located at " << index << ": is " << curChar << endl;
+        cout << "Value at " << index << " = " << curChar << endl;
         }
         catch (runtime_error& excpt) {
             cout << excpt.what() << " exception occurred." << endl;
         }
+        numRuns--;
     }
+//    selection_sort(vals);
+//    for (unsigned i = 0; i < vals.size(); i++)
+//    {
+//        cout << "vector after sorting: " << endl;
+//        cout << vals.at(i);
+//    }
     return 0;
 }
